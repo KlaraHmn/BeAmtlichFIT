@@ -1,0 +1,32 @@
+@startuml
+!theme toy
+title BeamtlichFit App - Use Case Diagram
+
+left to right direction
+skinparam actorStyle stick
+
+package "BeamtlichFit App" {
+
+    usecase "Profil erstellen" as UC1_Profilestellung
+    usecase "Anmelden" as UC2_Anmelden
+    
+    database "Datenbank" as DB {
+        usecase "Profile in DB speichern" as DB_UC1
+       
+    }
+
+}
+
+actor "Benutzer (Beamte)" as User
+actor "Authentifizierungs- und Autorisierungssystem" as AuthSystem <<System>>
+
+
+User --> UC1_Profilestellung : erstellt
+User --> UC2_Anmelden : meldet an
+
+
+
+UC2_Anmelden --> UC1_Profilestellung : leitet weiter bei fehlendem Profil
+UC2_Anmelden ..> DB : <<include>> : versucht Profil zu laden
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+start
+:Initialisierung;
+
+note right
+  Notiz rechts
+end note
+
+:Verarbeitung;
+note left
+  Notiz links
+end note
+stop
+@enduml

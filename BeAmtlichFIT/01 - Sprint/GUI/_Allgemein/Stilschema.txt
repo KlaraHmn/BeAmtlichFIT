@@ -1,0 +1,103 @@
+****************
+** ALLGEMEIN  **
+****************
+Überschriften------------------------------------------------------------------------
+    · 20 pt
+    · Großbuchstaben
+    · Inter SemiBold - Fett
+    · #0C3461
+
+Themen-Überschrift-------------------------------------------------------------------
+    · 12 pt
+    · Großbuchstaben
+    · Inter SemiBold - Fett
+    · #0C3461
+
+Textkörper--------------Textkörper Hervorhebung-------------Link (Hover)-------------
+    · 10 pt                 · 10 pt                             · 10 pt
+    · Inter Medium          · Inter Medium - Fett               · Inter Medium 
+    · #0C3461               · #0C3461                           · #A4ACBA
+
+ Button-------------------------Button (Hover)---------------------------------------
+    · Farbe:        #0C3461         · Farbe:        #A4ACBA
+    · Rahmenfabe:   #0C3461         · Rahmenfabe:   #0C3461
+    · Schriftfabe:  #FFFFFF         · Schriftfabe:  #0C3461
+
+Eingabefelder------------------------------------------------------------------------
+    · Farbe:        #A4ACBA
+    · Rahmenfabe:   #0C3461
+    · Schriftfabe:  #0C3461
+
+Farbverläufe-------------------------------------------------------------------------
+Farbverlauf App-Hintergrund: 
+    · von unten nach oben    
+    · #D2D2D2 
+    · #FFFFFF
+
+Farbverlauf App-Elemente-Hintergrund:
+    · von oben nach unten
+    · #E1E8F0
+    · #B8C5D6
+
+Navigation---------------------------------------------------------------------------
+Hintergrund:
+    · #0C3461
+Icon-Hintergund:
+    · #BCC9D9
+Icons:
+    · Icon_Übersicht.png
+    · Icon_Profil.png
+    · Icon_Laufaktivität.png
+    · Icon_Beamtolypmics.png
+    · Icon_Aktivitäten.png
+
+*****************************
+** ANMELDEN| REGISTRIEREN  **
+*****************************
+Farbverlauf Anmelde-/Registrierungseite oben: 
+    · von links nach rechts  
+    · #0C3461 
+    · #6B9FE1   
+
+***************
+** ÜBERSICHT **
+***************
+Bilder:
+    · Auszeichnungen.png
+
+Laufaktivitäten
+    · #5F7999
+
+************
+** PROFIL **
+************
+Bilder:
+    · Bearbeiten.png
+
+*******************
+** BEAMTOLYMPICS **
+*******************
+Bilder:
+    · Top_Ranking.png
+    · Beamtolympics.png
+
+******************
+**  AKTIVITÄTEN **
+******************
+Bilder:
+    · Gesamtstrecke.png
+    · Gesamtbewegungszeit.png
+    · Laufaktivität.png
+    · Gestartet.png
+
+******************
+**  AKTIVITÄTEN **
+******************
+Bilder:
+    · Distanz.png
+    · Schnitt.png
+    · Zeit.png
+    · Pause.png
+    · Fortsetzen.png
+    · Beenden.png
+    · Aktivität_Hintergrund.png

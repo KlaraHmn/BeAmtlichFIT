@@ -1,0 +1,47 @@
+@startuml BeAmtlichFIT_Sequence
+!theme toy
+title BeamtlichFit App - Sequenzdiagramm: Anmeldung
+
+skinparam backgroundColor #DDDDDD
+skinparam shadowing false
+skinparam roundcorner 7
+skinparam ArrowColor #454645
+skinparam actor {
+  FontColor black
+  BackgroundColor PowderBlue
+  BorderColor #454645
+}
+
+skinparam participant {
+  FontColor black
+  BackgroundColor PowderBlue
+  BorderColor #454645
+}
+
+actor "Beamter" as User 
+participant "Authentifizierungs-\nund Autorisierungssystem (:System)" as AuthSystem
+database "Datenbank" as DB
+
+alt Registrierung gewählt
+
+else Anmeldung gewählt
+  User -> AuthSystem: Wählt "Anmelden"
+  AuthSystem -> User: Fordert Username und Passwort
+  User -> AuthSystem: Gibt Username und Passwort ein
+  AuthSystem -> AuthSystem: Überprüft Daten
+  alt Daten akzeptiert
+    AuthSystem -> User: Eingeloggt
+  else Daten abgelehnt
+    AuthSystem -> User: Zeigt Fehlermeldung
+    alt Profil fehlt
+      AuthSystem -> User: Bietet Profilerstellung an
+      User -> AuthSystem: Wählt Profilerstellung
+      AuthSystem -> DB: Speichert neues Profil
+      AuthSystem -> User: Bestätigt Registrierung
+    else Anderer Fehler
+      AuthSystem -> User: Zeigt spezifische Fehlermeldung
+    end
+  end
+end
+
+@enduml

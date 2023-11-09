@@ -1,0 +1,58 @@
+@startuml
+!theme toy
+title BeamtlichFit App - Sequenzdiagramm: Profilerstellung
+
+skinparam backgroundColor #DDDDDD
+skinparam shadowing false
+skinparam roundcorner 7
+skinparam ArrowColor #454645
+skinparam actor {
+  FontColor black
+  BackgroundColor PowderBlue
+  BorderColor Black
+}
+
+skinparam participant {
+  FontColor black
+  BackgroundColor PowderBlue
+  BorderColor Black
+}
+
+actor "Beamter :Benutzer" as User
+participant "Authentifizierungs-\nund Autorisierungssystem :System" as AuthSystem
+database "Datenbank" as DB
+
+User -> AuthSystem: Startet Profilerstellung
+AuthSystem -> User: Fordert Profildaten
+
+group Eingabe der Profildaten
+    User -> AuthSystem: Vorname
+    User -> AuthSystem: Nachname
+    User -> AuthSystem: Username
+    User -> AuthSystem: Email
+    User -> AuthSystem: Passwort
+    User -> AuthSystem: Passwort bestätigen
+    User -> AuthSystem: Behörde
+    User -> AuthSystem: Geburtstag
+    User -> AuthSystem: Geschlecht
+    User -> AuthSystem: Gewicht (kg)
+    User -> AuthSystem: Körpergröße (cm)
+    User -> AuthSystem: Tägliches Schrittziel
+    User -> AuthSystem: Wöchentliches Schrittziel
+end
+
+AuthSystem -> AuthSystem: Überprüft die Gültigkeit der Daten
+alt Daten entsprechen den Vorgaben
+    AuthSystem -> DB: Erstellt das Profil und speichert es
+    AuthSystem -> User: Bestätigt erfolgreiche Profilerstellung
+else Daten entsprechen nicht den Vorgaben
+    AuthSystem -> User: Meldet ungültige Daten
+    alt Korrektur der Daten
+        User -> AuthSystem: Korrigiert Daten
+        AuthSystem -> AuthSystem: Überprüft Daten erneut
+    else Abbruch durch Benutzer
+        User -> AuthSystem: Bricht Profilerstellung ab
+        AuthSystem -> User: Kehrt zurück zur Anmeldemaske
+    end
+end
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+start
+:System bewertet die Aktivitätsdaten des Benutzers;
+
+if (zurückgelegte Schritte == festgelegtes Ziel) then (nein)
+  :Keine Auszeichnung vergeben;
+else (ja)
+    :Tatendrang-Tackerer Auszeichnung vergeben;
+endif
+
+if (festgelegtes Ziel + (10% * festgelegtes Ziel) <= zurückgelegte Schritte) then (nein)
+  -[#black]-> 
+else (ja)
+    if (zurückgelegte Schritte > festgelegtes Ziel + (10% * festgelegtes Ziel)) then (ja)
+        :Schreibtisch-Sprinter Auszeichnung vergeben;
+    else (nein)
+        :Staatlicher-Stolperer Auszeichnung vergeben;
+    endif
+endif
+
+:Benutzer wird über die Auszeichnung informiert;
+stop
+@enduml

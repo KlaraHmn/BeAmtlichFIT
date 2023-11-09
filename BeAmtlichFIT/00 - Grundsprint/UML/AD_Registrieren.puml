@@ -1,0 +1,23 @@
+@startuml AD_Registrieren
+package "Aktivitätsdiagramm - Registrieren" {
+start
+:Registrierungsreiter ist geöffnet;
+  if (Möchte sich der Benutzer registrieren oder anmelden?) then (Registrieren)
+  repeat
+    :Benutzer gibt Daten ein;
+    :System überprüft die Gültigkeit der Daten;
+    if (Daten entsprechen den Vorgaben?) then (Ja)
+      :System erstellt das Profil;
+      :Speichert es in der Datenbank;
+      stop
+    else (Nein)
+      :Benutzer wird darauf aufmerksam \ngemacht, dass die Daten nicht \nden Anforderungen entsprechen;
+    endif
+    repeat while (Möchte der Nutzer die Daten korrigieren?) is (Ja) not (Nein)
+        stop
+  else (Anmelden)
+    :Wechsel zum Registrierungsreiter;
+    stop
+  endif
+}
+@enduml

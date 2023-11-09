@@ -1,0 +1,12 @@
+@startuml
+start
+:Initialisierung;
+
+note right
+  Diese Notiz erläutert die
+  Initialisierung.
+end note
+
+:Verarbeitung;
+stop
+@enduml

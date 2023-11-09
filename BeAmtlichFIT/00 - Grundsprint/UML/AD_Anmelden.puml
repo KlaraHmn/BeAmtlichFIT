@@ -1,0 +1,24 @@
+@startuml AD_Anmelden
+partition "Benutzer" {
+  start
+  :Öffne BeAmtlichFit-App;
+  :Anmeldereiter ist geöffnet;
+  if (Möchte sich der Benutzer anmelden oder registrieren?) then (Anmelden)
+    repeat
+      :Benutzer gibt Username und Passwort ein;
+      partition "Authentifizierungs- und Autorisierungssystem" {
+        if (Sind die Daten korrekt?) then (Ja)
+          :Benutzer wird ins System eingeloggt;
+          stop
+        else (Nein)
+        endif
+      }
+      :Fehlermeldung wird angezeigt;
+    repeat while (Eingabedaten korrigieren?) is (Ja)
+  else (Registrieren)
+    :Wechsel zum Registrierungsreiter;
+    stop
+  endif
+stop
+}
+@enduml

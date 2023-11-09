@@ -1,0 +1,65 @@
+@startuml
+!theme toy
+title BeamtlichFit App - Use Case Diagram
+
+left to right direction
+skinparam actorStyle stick
+
+package "BeamtlichFit App" {
+
+    usecase "Profil erstellen" as UC1_Profilestellung
+    usecase "Anmelden" as UC2_Anmelden
+    usecase "Individuelle Ziele setzen" as UC3_Zielsetzung
+    usecase "Aktivitätsdaten erfassen" as UC4_Aktivitätsdaten
+    usecase "Auszeichnungen erhalten" as UC5_Auszeichnungen
+    usecase "An 'Beamtolympics'-Wettkämpfen teilnehmen" as UC6_Beamtolympics
+    usecase "Benutzeranfragen bearbeiten" as UC7_Benutzeranfragen
+    usecase "Datenschutzrichtlinien überwachen" as UC8_Datenschutzrichtlinien
+
+    database "Datenbank" as DB {
+        usecase "Profile in DB speichern" as DB_UC1
+        usecase "Einstellungsdaten in DB speichern" as DB_UC3
+        usecase "Laufaktivitäten in DB speichern" as DB_UC2
+        usecase "Ergebnisse der 'Beamtolympics' in DB speichern" as DB_UC4
+    }
+
+}
+
+actor "Benutzer (Beamte)" as User
+actor "Authentifizierungs- und Autorisierungssystem" as AuthSystem <<System>>
+actor "Datenbankadministratoren" as DBAdmin
+actor "Benutzersupport / Kundenservice" as Support
+actor "Datenschutzbeauftragte" as DataProtection
+actor "Behördenvertreter" as AuthoritiesRep
+actor "Krankenkasse/Gesundheitsamt" as HealthAuthority
+actor "Behörde" as Authorities <<Institution>>
+
+User --> UC1_Profilestellung : erstellt
+User --> UC2_Anmelden : meldet an
+User --> UC4_Aktivitätsdaten : startet
+AuthSystem --> UC1_Profilestellung : authentifiziert
+AuthSystem --> UC2_Anmelden : authentifiziert
+User --> UC3_Zielsetzung : setzt fest
+User --> UC6_Beamtolympics : nimmt teil
+
+DBAdmin --> DB : speichert
+
+Support --> UC7_Benutzeranfragen : beantwortet
+
+DataProtection --> UC8_Datenschutzrichtlinien : überwacht
+
+Authorities --> AuthoritiesRep : kommuniziert
+Authorities --> DataProtection : berät
+AuthoritiesRep --> UC5_Auszeichnungen : belohnt & fördert
+HealthAuthority --> UC5_Auszeichnungen : belohnt & fördert
+
+UC4_Aktivitätsdaten ..> DB_UC2 : <<extends>>
+UC1_Profilestellung ..> DB_UC1 : <<extends>>
+UC3_Zielsetzung ..> DB_UC3 : <<extends>>
+UC6_Beamtolympics ..> DB_UC4 : <<extends>>
+
+UC4_Aktivitätsdaten --> UC5_Auszeichnungen : führt zu
+UC2_Anmelden --> UC1_Profilestellung : leitet weiter bei fehlendem Profil
+UC2_Anmelden ..> DB : <<include>> : versucht Profil zu laden
+
+@enduml

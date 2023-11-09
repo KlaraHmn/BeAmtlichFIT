@@ -1,0 +1,24 @@
+@startuml
+start
+:Öffne BeAmtlichFit-App;
+repeat
+  :Anmeldeseite ist geöffnet;
+  if (Möchte sich der Benutzer anmelden oder registrieren?) then (Anmelden)
+    repeat
+     :Benutzer gibt Username und Passwort ein;
+      if (Sind die Daten korrekt?) then (Ja)
+        :Benutzer wird ins System eingeloggt;
+        stop
+      else (Nein)
+        :Fehlermeldung wird angezeigt;
+      endif
+    repeat while (Eingabedaten korrigieren?) is (Ja) not (Nein)
+    label e
+  else (Registrieren)
+    :Wechsel zum Registrierungsreiter;
+    stop
+  endif
+:Abbrechen;
+repeat while (Möchte nochmal versuchen?) is (Ja)
+stop
+@enduml
